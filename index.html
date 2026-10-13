@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latihan JavaScript | Registrasi &amp; Kode Pos</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&family=Yeseva+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="hero">
+    <p class="eyebrow">Pemrograman Web &middot; Latihan JavaScript</p>
+    <h1>Registrasi Mahasiswa <span>&amp;</span> Pencarian Kode Pos</h1>
+    <p class="subtitle">
+      Website yang berisi formulir registerasi mahasiswa dan
+      dropdown dinamis, serta pencarian kode pos berdasarkan wilayah.
+    </p>
+  </header>
+
+  <main class="grid">
+
+    <!-- ===================== KOTAK 1: REGISTRASI ===================== -->
+    <section class="card" aria-labelledby="judul-registrasi">
+      <div class="card-head">
+        <span class="badge">01</span>
+        <div>
+          <h2 id="judul-registrasi">Registrasi Mahasiswa</h2>
+          <p>Isi profil Mahasiswa.</p>
+        </div>
+      </div>
+
+      <form id="form-registrasi" novalidate>
+
+        <div class="field">
+          <label for="nama">Nama Mahasiswa</label>
+          <input type="text" id="nama" name="nama" placeholder="Nama lengkap" autocomplete="off">
+          <small class="error" id="error-nama" role="alert"></small>
+        </div>
+
+        <div class="field">
+          <label for="nim">NRP</label>
+          <input type="text" id="nim" name="nim" inputmode="numeric"
+                 placeholder="Isi NRP 10 digit" maxlength="10">
+          <small class="error" id="error-nim" role="alert"></small>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="matkul">Mata Kuliah</label>
+            <select id="matkul" name="matkul">
+              <option value="">Pilih mata kuliah</option>
+            </select>
+            <small class="error" id="error-matkul" role="alert"></small>
+          </div>
+
+          <div class="field">
+            <label for="dosen">Dosen Pengampu</label>
+            <select id="dosen" name="dosen" disabled>
+              <option value="">Pilih mata kuliah dahulu</option>
+            </select>
+            <small class="error" id="error-dosen" role="alert"></small>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn btn-primary">Daftar</button>
+          <button type="reset" class="btn btn-ghost">Reset</button>
+        </div>
+      </form>
+
+      <div id="hasil-registrasi" class="result" hidden aria-live="polite"></div>
+    </section>
+
+    <!-- ===================== KOTAK 2: KODE POS ===================== -->
+    <section class="card" aria-labelledby="judul-kodepos">
+      <div class="card-head">
+        <span class="badge">02</span>
+        <div>
+          <h2 id="judul-kodepos">Pencarian Kode Pos</h2>
+          <p>Pilih provinsi, kabupaten/kota, lalu kecamatan.</p>
+        </div>
+      </div>
+
+      <form id="form-kodepos" novalidate>
+
+        <div class="field">
+          <label for="provinsi">Provinsi</label>
+          <select id="provinsi" name="provinsi">
+            <option value="">Pilih provinsi</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="kota">Kabupaten / Kota</label>
+          <select id="kota" name="kota" disabled>
+            <option value="">Pilih provinsi dulu</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="kecamatan">Kecamatan</label>
+          <select id="kecamatan" name="kecamatan" disabled>
+            <option value="">Pilih kabupaten/kota dulu</option>
+          </select>
+        </div>
+
+        <small class="error" id="error-kodepos" role="alert"></small>
+
+        <div class="actions">
+          <button type="submit" class="btn btn-primary">Cari Kode Pos</button>
+          <button type="reset" class="btn btn-ghost">Reset</button>
+        </div>
+      </form>
+
+      <div id="hasil-kodepos" class="result" hidden aria-live="polite"></div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Latihan JavaScript &middot; HTML, CSS &amp; JavaScript murni tanpa library</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
